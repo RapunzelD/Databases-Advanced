@@ -1,0 +1,88 @@
+import requests
+import json
+from bs4 import BeautifulSoup
+import re
+import pandas as pd
+import numpy as np
+import time
+import logging 
+
+
+logs = logging.getLogger()
+fhandler = logging.FileHandler(filename='hashesh.log', mode='a')
+logs.addHandler(fhandler)
+
+def repeat():
+    x = 0
+    t_end = time.time() + 20 * 1
+    while t_end > x:
+        
+        url = ('https://www.blockchain.com/btc/unconfirmed-transactions')
+        r = requests.get(url)
+        
+        while True:
+            
+            r = requests.get(url)
+            
+    
+            web_hashes = BeautifulSoup(r.text, 'lxml')
+            web_hashes = web_hashes.find_all('div', {"class":'sc-6nt7oh-0 PtIAf'})
+
+
+
+            Hashes = list()
+            Time = list()
+            Price = list()
+            Amount = list()
+
+            for a in web_hashes:
+                aHref = a.find_all('a', {"class":"sc-1r996ns-0 fLwyDF sc-1tbyx6t-1 kCGMTY iklhnl-0 eEewhk d53qjk-0 ctEFcK"})
+                bSpan = a.find_all('span', {"class":"sc-1ryi78w-0 cILyoi sc-16b9dsl-1 ZwupP u3ufsr-0 eQTRKC"})
+
+
+                for b in aHref:
+                    text = b.get('href')
+                    replaced = re.sub('/btc/tx/', "", text)
+                    Hashes.append(replaced)
+
+                for c in bSpan:
+                    values = c.contents[0]
+
+                    a = "BTC"
+                    b = ":"
+                    c = "$"
+
+                    if a in values:
+                        Amount.append(values)
+                    elif b in values:
+                        Time.append(values)
+                    elif c in values:
+                        Price.append(values)
+
+
+
+            new_Amount = [s.replace("BTC", "") for s in Amount]
+            new_Amount = list(map(float, new_Amount))
+            percentile_list = pd.DataFrame(
+                {'Hash': Hashes,
+                    'Time': Time,
+                    'Amount': new_Amount,
+                    'Price': Price })
+
+            sorted_df = percentile_list.sort_values(["Amount"], ascending=False)
+            Highest = sorted_df.head(1)
+
+            pd.set_option('display.max_colwidth', None)
+            pd.set_option('display.max_rows', 500)
+            pd.set_option('display.max_columns', 500)
+            pd.set_option('display.width', 1000)
+            
+            
+            if time.time() > t_end:
+                print(Highest)
+                time.sleep(2)
+                logging.warning(Highest)
+                repeat()
+    
+         
+repeat()
