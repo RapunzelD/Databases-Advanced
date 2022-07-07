@@ -100,15 +100,11 @@ def repeat():
                 mycol = db['crypto']
                 nummer = mycol.count_documents({})
                 js = {"_id": "Hash" + str(nummer), "Hash": Hashh, "Time": Tijd, "Amount": Hoeveel, "Price": Prijs}
-               
+                
                 redis_client = redis.Redis(host='localhost', port=6379, db=0)
                 redis_client.set("bitcoinData", json.dumps(js))
-                
-                bitcoinData_obj_as_bytes = redis_client.get("bitcoinData")
-                bitcoinData_obj_as_str = bitcoinData_obj_as_bytes.decode("utf-8")
-                bitcoinData_obj_as_dict = json.loads(bitcoinData_obj_as_str)
-                pprint(bitcoinData_obj_as_dict)
-                print(" Has been added to redis server")
+                rediss = redis_client.get("bitcoinData")
+                print(str(rediss) + "Has been added to redis server")
                 
                 s = json.dumps(js)
                 d = json.loads(s)
