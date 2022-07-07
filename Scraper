@@ -14,7 +14,7 @@ logs.addHandler(fhandler)
 
 def repeat():
     x = 0
-    t_end = time.time() + 20 * 1
+    t_end = time.time() + 60 * 1
     while t_end > x:
         
         url = ('https://www.blockchain.com/btc/unconfirmed-transactions')
