@@ -1,0 +1,260 @@
+/*----------BODY----------*/
+
+body {
+    background: linear-gradient(90deg,#7F7FD5,#86A8E7,#91EAE4);
+    background-size: 100%;
+    animation: gradient 15s ease infinite;
+  }
+  
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@font-face {
+    font-family: 'Helvetica-Bold';
+    src: url(Helvetica-Bold.ttf);
+  }
+
+/*----------Login/Register----------*/
+
+.form
+{
+    font-family: 'Helvetica-Bold';
+    margin: 0;
+    width: 500px;
+    height: 700px;
+    border: 5px solid white;
+    border-radius: 25px;       
+    color: black; 
+    background-color:  white;
+    text-align: center;  
+    font-size: 30px;
+    transition: all 0.3s ease 0s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.reg_form
+{
+    display: none;
+}
+
+.labels
+{
+    font-family: 'Helvetica-Bold';
+    font-size: 35px;   
+}
+
+.reginput
+{
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 4px;
+    font-family: 'Helvetica-Bold';
+    font-size: 15px;  
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+    border-color: black;
+    color: black;
+}
+
+.regemailinput
+{
+    margin-bottom: 10px;
+    font-family: 'Helvetica-Bold';
+    font-size: 15px;  
+    height: 50px;
+    width: 426px;
+    border-radius: 5px;
+    border-color: black;
+    color: black;
+}
+
+.logemailinput
+{
+    margin-bottom: 10px;
+    font-family: 'Helvetica-Bold';
+    font-size: 15px;  
+    height: 50px;
+    width: 426px;
+    border-radius: 5px;
+    border-color: black;
+    color: black;
+}
+
+.reguserinput
+{
+    margin-bottom: 10px;
+    font-family: 'Helvetica-Bold';
+    font-size: 15px;  
+    height: 50px;
+    width: 426px;
+    border-radius: 5px;
+    border-color: black;
+    color: black;
+}
+
+.regpwdinput
+{
+    margin-bottom: 10px;
+    font-family: 'Helvetica-Bold';
+    font-size: 15px;  
+    height: 50px;
+    width: 426px;
+    border-radius: 5px;
+    border-color: black;
+    color: black;
+}
+
+.logpwdinput
+{
+    margin-bottom: 10px;
+    font-family: 'Helvetica-Bold';
+    font-size: 15px;  
+    height: 50px;
+    width: 426px;
+    border-radius: 5px;
+    border-color: black;
+    color: black;
+}
+
+.regdateinput
+{
+    margin-bottom: 10px;
+    font-family: 'Helvetica-Bold';
+    font-size: 15px;  
+    height: 50px;
+    width: 426px;
+    border-radius: 5px;
+    border-color: black;
+    color: black;
+}
+
+.regradioinput
+{
+    font-family: 'Helvetica-Bold';
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border-color: white;
+    outline: none;
+}
+
+.birthdaylabel
+{
+    font-family: 'Helvetica-Bold';
+    margin: 5px;
+    font-size: 15px;
+    position: relative;
+    left: -186px;
+}
+
+.genderlabel
+{
+    font-family: 'Helvetica-Bold';
+    margin: 5px;
+    font-size: 15px;
+    position: relative;
+    left: -190px;
+}
+
+.genderlabels
+{
+    font-family: 'Helvetica-Bold';
+    margin: 5px;
+    font-size: 15px;
+    position: relative;
+}
+
+.profile_pic
+{
+    font-family: 'Helvetica-Bold';
+    margin-bottom: -5px;
+    font-size: 15px;
+    position: relative;
+    left: -120px;
+}
+
+.profile_pic_file
+{
+    font-family: 'Helvetica-Bold';
+    margin-bottom: -40px;
+}
+
+.noaccount_p
+{
+    font-family: 'Helvetica-Bold';
+    margin-top: -10px;
+    font-size: 15px;
+    position: relative;
+    text-align: center;
+}
+
+::placeholder
+{
+    color: #808080;
+}
+
+.submitbuttons
+{
+    margin: 30px auto;
+    margin-top: 20px;
+    font-family: 'Helvetica-Bold';
+    font-size: 20px;   
+    text-decoration: none; 
+    color: black; 
+    background-color: white;     
+    border: 3px solid black;    
+    border-radius: 25px; 
+    display: block;
+    height: 50px;
+    width: 300px;    
+    text-align: center;  
+    outline: none;  
+
+}    
+
+.submitbuttons:hover 
+{
+    font-family: 'Helvetica-Bold';
+    color: white;
+    background: linear-gradient(90deg,#7F7FD5,#86A8E7,#91EAE4);
+    background-size: 100%;
+    animation: gradient 15s ease infinite;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+
+/*----------EVERYPAGE----------*/
+
+.brandname
+{
+    position: absolute;
+    font-family: 'Helvetica-Bold';
+    font-size: 35px;
+    color: white;
+    top: 8px;
+    left: 90px;
+    transition: all 0.3s ease 0s;
+}
+
+img.logo-img
+{
+    position: absolute;
+    top: 15px;
+    height: 80px;
+    width: 80px;
+    transition: all 0.3s ease 0s;
+}
